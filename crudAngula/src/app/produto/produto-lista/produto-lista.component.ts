@@ -17,8 +17,7 @@ export class ProdutoListaComponent implements OnInit {
 
   getProdutos() {
     this.service.list().subscribe((r)=>{
-      debugger;
-      this.produtos = r;
+        this.produtos = r;
     })
   }
 }
