@@ -2,10 +2,12 @@ const porta = 3003
 
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const bodyparser = require('body-parser')
 const bancodedados = require('./bancodedados')
 
 app.use(bodyparser.urlencoded({ extended: true }))
+app.use(cors())
 
 app.get('/produtos', (req, res, next) => {
     res.send(bancodedados.getProdutos())
