@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ConexaoService } from '../conexao.service';
 import { Produto } from '../produto';
 
@@ -8,7 +9,11 @@ import { Produto } from '../produto';
   styleUrls: ['./produto-lista.component.css']
 })
 export class ProdutoListaComponent implements OnInit {
-  public produtos: Array<any> = [1,2,3,5,6];
+
+  public produtos: Array<any> = [];
+
+  
+
   constructor(private service: ConexaoService) {}
 
   ngOnInit(): void {
