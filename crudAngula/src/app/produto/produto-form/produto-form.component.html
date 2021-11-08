@@ -1,17 +1,22 @@
-<form class="row g-3 needs-validation" novalidate[formGroup]="form" style="padding-top:10px;" > 
-  <!-- [formGroup]="form" -->
+<!-- <form
+  class="row g-3 needs-validation"
+  novalidate
+  [FormGroup]="form"
+  style="padding-top: 10px"
+>
   <div class="col-md-12">
-    <label for="validationCustom01" class="form-label">Nome do produto</label>
+    <label for="nome" class="form-label">Nome do produto</label>
     <input
       type="text"
       class="form-control"
-      id="validationCustom01"
+      id="nome"
       placeholder="Nome do Produto"
     />
     <div class="valid-feedback">Looks good!</div>
   </div>
-  <div style="margin-top:10px;">
-    <button class="btn btn-primary" type="submit">Salva</button>
-    <button class="btn btn-default" type="submit">Cancela</button>
-  </div>
+   <div style="margin-top:10px;">
+    <button class="btn btn-primary" (click)=onSubmit="()" >Salva</button>
+    <button class="btn btn-default">Cancela</button>
+  </div>  
 </form>
+ -->
