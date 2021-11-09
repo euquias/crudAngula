@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-produto-form',
@@ -12,6 +8,7 @@ import {
 })
 export class ProdutoFormComponent implements OnInit {
   form!: FormGroup;
+  submitted = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -27,13 +24,19 @@ export class ProdutoFormComponent implements OnInit {
       ],
     });
   }
+
+   hasError(field: string){
+    return this.form.get(field)?.errors;
+  } 
   onSubmit() {
+    this.submitted = true;
     console.log(this.form.value);
     if (this.form.valid) {
       console.log('submit');
     }
   }
   onCancel() {
-    console.log('onCancel');
+    this.submitted = false;
+    this.form.reset();
   }
 }
