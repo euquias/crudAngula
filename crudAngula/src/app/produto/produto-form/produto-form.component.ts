@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConexaoService } from '../conexao.service';
 
 @Component({
   selector: 'app-produto-form',
@@ -10,7 +11,7 @@ export class ProdutoFormComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: ConexaoService) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -32,7 +33,11 @@ export class ProdutoFormComponent implements OnInit {
     this.submitted = true;
     console.log(this.form.value);
     if (this.form.valid) {
-      console.log('submit');
+      this.service.create(this.form.value).subscribe(
+        _success => console.log('sucesso'),
+        error => console.error(error),
+        () => console.log('request completo')
+      )
     }
   }
   onCancel() {
