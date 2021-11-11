@@ -10,6 +10,8 @@ import { ConexaoService } from '../conexao.service';
 export class ProdutoFormComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
+  ConexaoService: any;
+  produto: any;
 
   constructor(private fb: FormBuilder, private service: ConexaoService) {}
 
@@ -26,22 +28,26 @@ export class ProdutoFormComponent implements OnInit {
     });
   }
 
-   hasError(field: string){
+  hasError(field: string) {
     return this.form.get(field)?.errors;
-  } 
+  }
   onSubmit() {
     this.submitted = true;
     console.log(this.form.value);
     if (this.form.valid) {
+      console.log('submit');
       this.service.create(this.form.value).subscribe(
-        _success => console.log('sucesso'),
-        error => console.error(error),
+        (success) => console.log('sucesso'),
+        (error) => console.error(error),
         () => console.log('request completo')
-      )
+      );
     }
   }
   onCancel() {
     this.submitted = false;
     this.form.reset();
   }
+}
+function newProduto(newProduto: any) {
+  throw new Error('Function not implemented.');
 }

@@ -15,10 +15,10 @@
       [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
     />
   </div>
-    <!-- <div class="valid-feedback" *ngif="hasError('nome') && hasError('nome')['required']">
+  <!--  <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')['required']">
       Por favor informe um nome para o produto.
-    </div>
-     <div class="valid-feedback" *ngif="hasError('nome') && hasError('nome')['minlength']">
+    </div>  
+    <!--  <div class="valid-feedback" *ngif="hasError('nome') && hasError('nome')['minlength']">
       Nome precisa ter no minimo {{ hasError('nome')['minlength'].requiredLength }}caracteres.
     </div>
     <div class="valid-feedback" *ngif="hasError('nome') && hasError('nome')['maxlength']">
