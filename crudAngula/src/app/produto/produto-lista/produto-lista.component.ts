@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConexaoService } from '../conexao.service';
 import { Produto } from '../produto';
@@ -14,7 +15,10 @@ export class ProdutoListaComponent implements OnInit {
 
   
 
-  constructor(private service: ConexaoService) {}
+  constructor(private service: ConexaoService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
     this.getProdutos();
@@ -24,5 +28,8 @@ export class ProdutoListaComponent implements OnInit {
     this.service.list().subscribe((r)=>{
         this.produtos = r;
     })
+  }
+  onEdit(id: any){
+    this.router.navigate(['editar', id], {relativeTo:this.route})
   }
 }

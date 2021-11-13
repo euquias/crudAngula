@@ -23,11 +23,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtos">
-        <td>{{produto?.id}}</td>
-        <td>{{produto?.nome}}</td>
+        <td>{{produto.id}}</td>
+        <td>{{produto.nome}}</td>
         <td>
           <span class="float-right">
-            <button type="button" class="btn btn-outline-warning mb-12 btm-sm">Altera</button>
+            <button type="button" class="btn btn-outline-warning mb-12 btm-sm"(click)="onEdit(produto.id)">Altera</button>
             <button type="button" class="btn btn-outline-danger mb-12 btn-sm">remover</button> 
           </span>
         </td>

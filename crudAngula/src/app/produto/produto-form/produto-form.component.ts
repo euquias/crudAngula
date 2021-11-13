@@ -48,6 +48,4 @@ export class ProdutoFormComponent implements OnInit {
     this.form.reset();
   }
 }
-function newProduto(newProduto: any) {
-  throw new Error('Function not implemented.');
-}
+
