@@ -4,9 +4,18 @@
       <div class="container-fluid">
         <a class="navbar-brand">produtos</a>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar produto..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">pesquisar</button>
-          <button class="btn btn-primary" [routerLink]="['novo']">Novo Produto</button>
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Pesquisar produto..."
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            pesquisar
+          </button>
+          <button class="btn btn-primary" [routerLink]="['novo']">
+            Novo Produto
+          </button>
         </form>
       </div>
     </nav>
@@ -17,21 +26,42 @@
     <thead>
       <tr>
         <th>#</th>
-        <th><strong>Produtos</strong> </th>
+        <th><strong>Produtos</strong></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtos">
-        <td>{{produto.id}}</td>
-        <td>{{produto.nome}}</td>
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nome }}</td>
         <td>
           <span class="float-right">
-            <button type="button" class="btn btn-outline-warning mb-12 btm-sm"(click)="onEdit(produto.id)">Altera</button>
-            <button type="button" class="btn btn-outline-danger mb-12 btn-sm">remover</button> 
+            <button
+              type="button"
+              class="btn btn-outline-warning mb-12 btm-sm"
+              (click)="onEdit(produto.id)"
+            >
+              Altera
+            </button>
+            <button type="button" class="btn btn-outline-danger mb-12 btn-sm">
+              remover
+            </button>
           </span>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<!-- <ng-template #deleteModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+    <button type="button" class="btn-close close pull-right" aria-label="Close">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+</ng-template>
+ -->

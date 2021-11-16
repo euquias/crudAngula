@@ -1,0 +1,15 @@
+  http://localhost:3000/produto
+
+###
+
+ POST http://localhost:3000/produto HTTP/1.1
+content-type: application/json
+
+###
+ PUT  http://localhost:3000/produto HTTP/1.1
+content-type: application/json
+
+###
+
+ DELETE  http://localhost:3000/produto HTTP/1.1
+content-type: application/json

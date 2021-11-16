@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ConexaoService } from '../conexao.service';
 
 @Component({
@@ -13,10 +14,24 @@ export class ProdutoFormComponent implements OnInit {
   ConexaoService: any;
   produto: any;
 
-  constructor(private fb: FormBuilder, private service: ConexaoService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: ConexaoService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params: any) => {
+      const id = params['id'];
+      console.log(id);
+      const produto$ = this.service.loadByID(id);
+      produto$.subscribe((produto) => {
+        this.updateForme(produto)
+      });
+    });
+
     this.form = this.fb.group({
+      id:[null],
       nome: [
         null,
         [
@@ -26,6 +41,12 @@ export class ProdutoFormComponent implements OnInit {
         ],
       ],
     });
+  }
+  updateForme(produto:any){
+    this.form.patchValue({
+      id: produto.id,
+      nome: produto.nome
+    })
   }
 
   hasError(field: string) {
@@ -48,4 +69,3 @@ export class ProdutoFormComponent implements OnInit {
     this.form.reset();
   }
 }
-
