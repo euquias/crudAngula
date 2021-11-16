@@ -2,7 +2,7 @@
   <div class="card-header">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand">produtos</a>
+        <a class="navbar-brand">Produtos</a>
         <form class="d-flex">
           <input
             class="form-control me-2"
@@ -35,7 +35,7 @@
         <td>{{ produto.id }}</td>
         <td>{{ produto.nome }}</td>
         <td>
-          <span class="float-right">
+          <span class="float-end">
             <button
               type="button"
               class="btn btn-outline-warning mb-12 btm-sm"
@@ -65,3 +65,19 @@
   </div>
 </ng-template>
  -->
+
+ <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ConexaoService } from '../conexao.service';
 import { Produto } from '../produto';
+/* import { BsModalService } from 'ngx-bootstrap/modal'; */
 
 @Component({
   selector: 'app-produto-lista',
@@ -15,7 +15,8 @@ export class ProdutoListaComponent implements OnInit {
   constructor(
     private service: ConexaoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+   /*  private modalService: BsModalService */
   ) {}
 
   ngOnInit(): void {
